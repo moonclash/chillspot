@@ -1,0 +1,29 @@
+{
+  "name": "chillspot",
+  "version": "1.0.0",
+  "description": "Chillspot is a web site for finding places to relax and hold social events",
+  "main": "gulpfile.js",
+  "dependencies": {
+    "gulp": "^3.9.1"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-sass": "^2.3.2"
+  },
+  "scripts": {
+    "test": "echo (\"hello world\")"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/embrah/chillspot.git"
+  },
+  "keywords": [
+    "chill"
+  ],
+  "author": "Emil Mladenov",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/embrah/chillspot/issues"
+  },
+  "homepage": "https://github.com/embrah/chillspot#readme"
+}

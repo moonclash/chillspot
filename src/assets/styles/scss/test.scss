@@ -1,0 +1,16 @@
+body {
+	background: pink;
+}
+
+@for $i from 1 through 10 {
+	li:nth-child(#{$i}) {
+		background: indianred;
+		height: 50px;
+		width: 10px * $i;
+		display: inline-block;
+		border: 1px * $i solid #ccc;
+		margin: 1px * $i;
+		display: flex;
+
+	}
+}
