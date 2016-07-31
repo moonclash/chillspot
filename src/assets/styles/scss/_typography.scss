@@ -1,0 +1,33 @@
+@import 'variables';
+
+html {
+  font-size: 10px;
+}
+
+body {
+  font-family: $body-font;
+}
+
+a,button {
+  font-family: $links-font;
+}
+
+h1,h2,h3 {
+  font-family: $headings-font;
+}
+
+h1 {
+  font-size: $font-size-large;
+}
+
+h2 {
+  font-size: $font-size-medium;
+}
+
+h3 {
+  font-size: $font-size-small;
+}
+
+body {
+  font-size: $font-size-default;
+}
