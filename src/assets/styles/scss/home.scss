@@ -1,0 +1,162 @@
+@import 'variables';
+@import 'typography';
+@import 'mixins';
+
+h1,h2,h3,p,a {
+  margin: 0;
+}
+
+
+.page-wrap {
+  overflow: hidden;
+}
+
+nav {
+  background: $blue-500;
+  position: fixed;
+  left: 0;
+  right: 0;
+  padding: 15px 0;
+  box-shadow: 0 2px 3px transparentize($black-500,.5);
+  
+  @media all and (max-width: 450px) {
+    top: 0;
+    bottom: 0;
+    transform: translateX(-100%);
+    transition: .5s all cubic-bezier($cubic-fast-start);
+  }
+
+  ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    @extend %flex-row-nowrap;
+    justify-content: space-around;
+
+    @media all and (max-width: 450px) {
+      flex-flow: column wrap;
+
+      li {
+        padding: 10px 15px;
+      }
+    } 
+
+    li {
+
+      a {
+        color: $white-500;
+        text-transform: uppercase;
+        transition: .3s all ease-in-out;
+        border-bottom: {
+          style: solid;
+          width: 2px;
+          color: $blue-500;
+        }
+
+        &:hover {
+          border-bottom: {
+            color: $white-500;
+          }
+        }
+      }
+    }
+  }
+}
+
+.outside-toggle {
+  color: $white-500;
+  background: $blue-500;
+  position: fixed;
+  left: 0;
+  right: 0;
+  padding: 8px 15px;
+
+  @media all and (min-width: 450px) {
+    display: none;
+  }
+}
+
+
+#menu-toggle {
+  display: none;
+
+  &:checked + nav {
+    transform: translateX(0);
+  }
+}
+
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+header {
+  @include backgroundImg('../../images/street-hero.jpg');
+  background-attachment: fixed;
+  @include overlay($black-500,.2);
+  @extend %flex-col-center;
+  color: $white-500; 
+  padding: 300px 0;
+
+  .container {
+    @extend %flex-col-center;
+    text-align: center;
+  }
+}
+
+.chill-intro {
+  background: lighten($blue-200,10%);
+  padding: 100px 0;
+  .container {
+    @extend %flex-col-center;
+    text-align: center;
+
+    p {
+      text-align: center;
+      margin: 20px 0;
+      max-width: 60%; 
+    }
+  }
+}
+
+.row {
+  @extend %flex-row-nowrap;
+  justify-content: space-around;
+  @media all and (max-width: 780px) {
+    flex-flow: column wrap;
+  }
+  .chill-block {
+    @extend %flex-col-center;
+    flex: 0 1 33%;
+    margin: 10px;
+
+    img {
+      width: 100%;
+      transition: .4s all cubic-bezier($cubic-fast-start);
+
+    }
+
+    h3 {
+      margin: 10px 0;
+    }
+  }
+}
+
+.magic {
+  @include backgroundImg('../../images/beach.jpg');
+  padding: 50px 0;
+
+  .activities-row {
+    @extend %flex-row-nowrap;
+    justify-content: space-around;
+    .activities_block {
+      height: 200px;
+      @include backgroundImg('../../images/date.jpg')
+      flex: 1;
+      margin: 10px;
+      @extend %flex-col-center;
+    }
+
+  }
+}

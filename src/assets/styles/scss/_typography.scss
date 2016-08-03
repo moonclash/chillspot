@@ -12,6 +12,11 @@ a,button {
   font-family: $links-font;
 }
 
+a {
+	color: $black-500;
+	text-decoration: none;
+}
+
 h1,h2,h3 {
   font-family: $headings-font;
 }

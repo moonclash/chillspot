@@ -4,7 +4,8 @@
   "description": "Chillspot is a web site for finding places to relax and hold social events",
   "main": "gulpfile.js",
   "dependencies": {
-    "gulp": "^3.9.1"
+    "gulp": "^3.9.1",
+    "normalize.css": "^4.2.0"
   },
   "devDependencies": {
     "gulp": "^3.9.1",
