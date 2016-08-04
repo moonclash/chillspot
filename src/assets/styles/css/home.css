@@ -32,13 +32,13 @@ h3 {
 body {
   font-size: 1.8rem; }
 
-nav ul, .row, .magic .activities-row, .result-row {
+nav ul, .row, .magic .activities-row, .result-row, .storyline .story-row, .community .container .people-row {
   display: -ms-flexbox;
   display: flex;
   -ms-flex-flow: row nowrap;
   flex-flow: row nowrap; }
 
-header, header .container, .chill-intro .container, .row .chill-block, .magic .activities-row .activities_block {
+header, header .container, .chill-intro .container, .row .chill-block, .magic .activities-row .activities_block, .storyline .container, .community .container, .community .container .people-row .person-block {
   display: -ms-flexbox;
   display: flex;
   -ms-flex-flow: column wrap;
@@ -50,14 +50,18 @@ header, header .container, .chill-intro .container, .row .chill-block, .magic .a
   -ms-flex-flow: column nowrap;
   flex-flow: column nowrap; }
 
-header, header .container, .chill-intro .container, .row .chill-block, .magic .activities-row .activities_block {
+header, header .container, .chill-intro .container, .row .chill-block, .magic .activities-row .activities_block, .storyline .container, .community .container, .community .container .people-row .person-block {
   -ms-flex-align: center;
   -ms-grid-row-align: center;
   align-items: center;
   -ms-flex-pack: center;
   justify-content: center; }
 
-h1, h2, h3, p, a {
+h1,
+h2,
+h3,
+p,
+a {
   margin: 0; }
 
 .page-wrap {
@@ -162,6 +166,10 @@ header {
     -ms-flex-align: center;
     -ms-grid-row-align: center;
     align-items: center; }
+    @media all and (max-width: 870px) {
+      .magic .container h1 {
+        text-align: center;
+        font-size: 3.9rem; } }
   .magic .activities-row {
     -ms-flex-item-align: stretch;
     align-self: stretch;
@@ -196,15 +204,24 @@ header {
         background: url("../../images/icons/heart.png") no-repeat center center/35%, url("../../images/date.jpg") no-repeat center top/cover; }
         .magic .activities-row .activities_block:hover h3 {
           opacity: 0; }
+  @media all and (max-width: 870px) {
+    .magic .result-row {
+      -ms-flex-flow: column wrap;
+      flex-flow: column wrap;
+      padding: 0 25px; }
+      .magic .result-row iframe {
+        display: none; } }
 
-form input, form textarea {
+form input,
+form textarea {
   border: 1px solid #34A0AF;
   border-radius: 5px;
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.3);
   padding: 8px 13px;
   margin: 2px 0;
   opacity: .5; }
-  form input:focus, form textarea:focus {
+  form input:focus,
+  form textarea:focus {
     outline: none;
     box-shadow: 0 1px 1px #34A0AF; }
 
@@ -239,3 +256,72 @@ form button {
     flex: 0 1 35%;
     padding: 0 20px;
     text-align: center; }
+
+.storyline {
+  background: #dbf6fa;
+  padding: 50px 0; }
+  .storyline .story-row {
+    -ms-flex-align: center;
+    -ms-grid-row-align: center;
+    align-items: center;
+    -ms-flex-pack: distribute;
+    justify-content: space-around;
+    padding: 50px 0; }
+    @media all and (max-width: 870px) {
+      .storyline .story-row {
+        -ms-flex-flow: column wrap;
+        flex-flow: column wrap;
+        padding: 0 25px; }
+        .storyline .story-row p {
+          padding: 25px; } }
+    .storyline .story-row .story-img {
+      -ms-flex: 0 1 50%;
+      flex: 0 1 50%;
+      margin: 0 10px; }
+      .storyline .story-row .story-img img {
+        width: 100%; }
+    .storyline .story-row p {
+      -ms-flex: 1 0 50%;
+      flex: 1 0 50%; }
+
+.community {
+  padding: 50px 0;
+  background: url("../../images/people-hockey.jpg") no-repeat center top/cover; }
+  @media all and (max-width: 870px) {
+    .community .container h1 {
+      text-align: center;
+      font-size: 4.2rem;
+      padding: 0 15px; } }
+  .community .container .people-row {
+    padding: 50px 0; }
+    .community .container .people-row .person-block:nth-child(1) {
+      background: url("../../images/jill.png") no-repeat center top/cover; }
+    .community .container .people-row .person-block:nth-child(2) {
+      background: url("../../images/jim.png") no-repeat center top/cover; }
+    .community .container .people-row .person-block:nth-child(3) {
+      background: url("../../images/john.png") no-repeat center top/cover; }
+    .community .container .people-row .person-block:nth-child(4) {
+      background: url("../../images/jenny.png") no-repeat center top/cover; }
+    @media all and (max-width: 870px) {
+      .community .container .people-row {
+        -ms-flex-flow: column wrap;
+        flex-flow: column wrap; } }
+    .community .container .people-row .person-block {
+      color: #fdfdfd;
+      height: 300px;
+      -ms-flex: 1;
+      flex: 1;
+      background: url("../../images/jill.png") no-repeat center top/cover;
+      box-shadow: inset 0 0 1000px rgba(52, 160, 175, 0.8);
+      margin: 0 10px;
+      text-align: center;
+      overflow: hidden; }
+      .community .container .people-row .person-block:hover > p {
+        transform: translateY(0); }
+      .community .container .people-row .person-block h3 {
+        margin-bottom: auto;
+        padding: 10px 0; }
+      .community .container .people-row .person-block p {
+        margin-bottom: auto;
+        transition: 0.2s all cubic-bezier(0.2, 0.1, 0.4, 0.7);
+        transform: translateY(200px); }
