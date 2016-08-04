@@ -32,7 +32,7 @@ h3 {
 body {
   font-size: 1.8rem; }
 
-nav ul, .row, .magic .activities-row {
+nav ul, .row, .magic .activities-row, .result-row {
   display: -ms-flexbox;
   display: flex;
   -ms-flex-flow: row nowrap;
@@ -43,6 +43,12 @@ header, header .container, .chill-intro .container, .row .chill-block, .magic .a
   display: flex;
   -ms-flex-flow: column wrap;
   flex-flow: column wrap; }
+
+.magic .container, form {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-flow: column nowrap;
+  flex-flow: column nowrap; }
 
 header, header .container, .chill-intro .container, .row .chill-block, .magic .activities-row .activities_block {
   -ms-flex-align: center;
@@ -150,13 +156,86 @@ header {
 
 .magic {
   background: url("../../images/beach.jpg") no-repeat center top/cover;
+  background-position: center 60%;
   padding: 50px 0; }
+  .magic .container {
+    -ms-flex-align: center;
+    -ms-grid-row-align: center;
+    align-items: center; }
   .magic .activities-row {
+    -ms-flex-item-align: stretch;
+    align-self: stretch;
     -ms-flex-pack: distribute;
-    justify-content: space-around; }
+    justify-content: space-around;
+    padding: 35px 0; }
+    @media all and (max-width: 870px) {
+      .magic .activities-row {
+        -ms-flex-item-align: center;
+        align-self: center;
+        -ms-flex-flow: column wrap;
+        flex-flow: column wrap; } }
     .magic .activities-row .activities_block {
       height: 200px;
-      background: url("../../images/date.jpg") no-repeat center top/cover;
+      background: url("../../images/icons/heart.png") no-repeat -100px center/35%, url("../../images/date.jpg") no-repeat center top/cover;
+      box-shadow: inset 0 0 1000px rgba(0, 0, 0, 0.8);
+      color: #fdfdfd;
       -ms-flex: 1;
       flex: 1;
-      margin: 10px; }
+      margin: 10px;
+      overflow: hidden;
+      transition: .3s all ease-in-out; }
+      @media all and (max-width: 870px) {
+        .magic .activities-row .activities_block {
+          -ms-flex: 1;
+          flex: 1;
+          width: 300px; } }
+      .magic .activities-row .activities_block h3 {
+        transition: .3s all ease-in-out; }
+      .magic .activities-row .activities_block:hover {
+        box-shadow: inset 0 0 1000px rgba(0, 0, 0, 0.1);
+        background: url("../../images/icons/heart.png") no-repeat center center/35%, url("../../images/date.jpg") no-repeat center top/cover; }
+        .magic .activities-row .activities_block:hover h3 {
+          opacity: 0; }
+
+form input, form textarea {
+  border: 1px solid #34A0AF;
+  border-radius: 5px;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.3);
+  padding: 8px 13px;
+  margin: 2px 0;
+  opacity: .5; }
+  form input:focus, form textarea:focus {
+    outline: none;
+    box-shadow: 0 1px 1px #34A0AF; }
+
+form textarea {
+  resize: none;
+  margin-bottom: 10px; }
+
+form button {
+  border: none;
+  background: #34A0AF;
+  box-shadow: 1px 2px 1px rgba(0, 0, 0, 0.5);
+  display: inline-block;
+  padding: 10px 18px;
+  text-transform: uppercase;
+  transition: 0.5s all cubic-bezier(0.9, 0.8, 0.6, 0.2); }
+  form button:focus {
+    outline: none; }
+  form button:hover {
+    background: #113439;
+    color: #34A0AF; }
+
+.result-row {
+  padding: 50px 0;
+  -ms-flex-align: center;
+  -ms-grid-row-align: center;
+  align-items: center; }
+  .result-row iframe {
+    -ms-flex: 1 0 65%;
+    flex: 1 0 65%; }
+  .result-row .instructions {
+    -ms-flex: 0 1 35%;
+    flex: 0 1 35%;
+    padding: 0 20px;
+    text-align: center; }

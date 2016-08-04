@@ -145,18 +145,89 @@ header {
 
 .magic {
   @include backgroundImg('../../images/beach.jpg');
+  background-position: center 60%;
   padding: 50px 0;
 
+  .container {
+    @extend %flex-col-nowrap;
+    align-items: center;
+  }
+
   .activities-row {
+    align-self: stretch;
     @extend %flex-row-nowrap;
     justify-content: space-around;
+    padding: 35px 0;
+
+    @media all and (max-width: 870px) {
+        align-self: center;
+        flex-flow: column wrap;
+    }
     .activities_block {
       height: 200px;
-      @include backgroundImg('../../images/date.jpg')
+      background: url('../../images/icons/heart.png') no-repeat -100px center / 35%,
+                  url('../../images/date.jpg') no-repeat center top / cover;
+      @include overlay($black-500,.2);
+      @extend %flex-col-center;
+      color: $white-500;
       flex: 1;
       margin: 10px;
-      @extend %flex-col-center;
-    }
+      overflow: hidden;
+      transition: .3s all ease-in-out;
+      
+      @media all and (max-width: 870px) {
+        flex: 1;
+        width: 300px;
+      }
 
+      h3 {
+        transition: .3s all ease-in-out;
+      }
+
+      &:hover {
+        @include overlay($black-500,.9);
+        background: url('../../images/icons/heart.png') no-repeat center center / 35%,
+                  url('../../images/date.jpg') no-repeat center top / cover;
+        
+        h3 {
+          opacity: 0;
+        }
+      }     
+    }
+  } 
+}
+
+form {
+  @extend %flex-col-nowrap;
+
+  input,textarea {
+    @include standartInput($blue-500,$black-500);
+    margin: 2px 0;
+    opacity: .5;
+  }
+
+  textarea {
+    resize: none;
+    margin-bottom: 10px;
+  }
+
+  button {
+    @include btn-default($blue-500);
+  }
+}
+
+.result-row {
+  padding: 50px 0;
+  @extend %flex-row-nowrap;
+  align-items: center;
+
+  iframe {
+    flex: 1 0 65%;
+  }
+
+  .instructions {
+    flex: 0 1 35%;
+    padding: 0 20px;
+    text-align: center;
   }
 }
