@@ -38,7 +38,7 @@ nav ul, .row, .magic .activities-row, .result-row, .storyline .story-row, .commu
   -ms-flex-flow: row nowrap;
   flex-flow: row nowrap; }
 
-header, header .container, .chill-intro .container, .row .chill-block, .magic .activities-row .activities_block, .storyline .container, .community .container, .community .container .people-row .person-block {
+header, header .container, .chill-intro .container, .row .chill-block, .magic .activities-row .activities_block, .storyline .container, .community .container, .community .container .people-row .person-block, footer {
   display: -ms-flexbox;
   display: flex;
   -ms-flex-flow: column wrap;
@@ -50,7 +50,7 @@ header, header .container, .chill-intro .container, .row .chill-block, .magic .a
   -ms-flex-flow: column nowrap;
   flex-flow: column nowrap; }
 
-header, header .container, .chill-intro .container, .row .chill-block, .magic .activities-row .activities_block, .storyline .container, .community .container, .community .container .people-row .person-block {
+header, header .container, .chill-intro .container, .row .chill-block, .magic .activities-row .activities_block, .storyline .container, .community .container, .community .container .people-row .person-block, footer {
   -ms-flex-align: center;
   -ms-grid-row-align: center;
   align-items: center;
@@ -325,3 +325,9 @@ form button {
         margin-bottom: auto;
         transition: 0.2s all cubic-bezier(0.2, 0.1, 0.4, 0.7);
         transform: translateY(200px); }
+
+footer {
+  background: #000;
+  color: #fdfdfd;
+  padding: 50px 0;
+  text-align: center; }
