@@ -1,233 +1,317 @@
 @import 'variables';
 @import 'typography';
 @import 'mixins';
-
-h1,h2,h3,p,a {
-  margin: 0;
+$people: '../../images/jill.png' '../../images/jim.png' '../../images/john.png' '../../images/jenny.png';
+h1,
+h2,
+h3,
+p,
+a {
+    margin: 0;
 }
 
-
 .page-wrap {
-  overflow: hidden;
+    overflow: hidden;
 }
 
 nav {
-  background: $blue-500;
-  position: fixed;
-  left: 0;
-  right: 0;
-  padding: 15px 0;
-  box-shadow: 0 2px 3px transparentize($black-500,.5);
-  
-  @media all and (max-width: 450px) {
-    top: 0;
-    bottom: 0;
-    transform: translateX(-100%);
-    transition: .5s all cubic-bezier($cubic-fast-start);
-  }
-
-  ul {
-    margin: 0;
-    padding: 0;
-    list-style: none;
-    @extend %flex-row-nowrap;
-    justify-content: space-around;
-
+    background: $blue-500;
+    position: fixed;
+    left: 0;
+    right: 0;
+    padding: 15px 0;
+    box-shadow: 0 2px 3px transparentize($black-500, .5);
     @media all and (max-width: 450px) {
-      flex-flow: column wrap;
-
-      li {
-        padding: 10px 15px;
-      }
-    } 
-
-    li {
-
-      a {
-        color: $white-500;
-        text-transform: uppercase;
-        transition: .3s all ease-in-out;
-        border-bottom: {
-          style: solid;
-          width: 2px;
-          color: $blue-500;
-        }
-
-        &:hover {
-          border-bottom: {
-            color: $white-500;
-          }
-        }
-      }
+        top: 0;
+        bottom: 0;
+        transform: translateX(-100%);
+        transition: .5s all cubic-bezier($cubic-fast-start);
     }
-  }
+    ul {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        @extend %flex-row-nowrap;
+        justify-content: space-around;
+        @media all and (max-width: 450px) {
+            flex-flow: column wrap;
+            li {
+                padding: 10px 15px;
+            }
+        }
+        li {
+            a {
+                color: $white-500;
+                text-transform: uppercase;
+                transition: .3s all ease-in-out;
+                border-bottom: {
+                    style: solid;
+                    width: 2px;
+                    color: $blue-500;
+                }
+                &:hover {
+                    border-bottom: {
+                        color: $white-500;
+                    }
+                }
+            }
+        }
+    }
 }
 
 .outside-toggle {
-  color: $white-500;
-  background: $blue-500;
-  position: fixed;
-  left: 0;
-  right: 0;
-  padding: 8px 15px;
-
-  @media all and (min-width: 450px) {
-    display: none;
-  }
+    color: $white-500;
+    background: $blue-500;
+    position: fixed;
+    left: 0;
+    right: 0;
+    padding: 8px 15px;
+    @media all and (min-width: 450px) {
+        display: none;
+    }
 }
-
 
 #menu-toggle {
-  display: none;
-
-  &:checked + nav {
-    transform: translateX(0);
-  }
+    display: none;
+    &:checked + nav {
+        transform: translateX(0);
+    }
 }
 
-
 .container {
-  max-width: 1200px;
-  margin: 0 auto;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 header {
-  @include backgroundImg('../../images/street-hero.jpg');
-  background-attachment: fixed;
-  @include overlay($black-500,.2);
-  @extend %flex-col-center;
-  color: $white-500; 
-  padding: 300px 0;
-
-  .container {
+    @include backgroundImg('../../images/street-hero.jpg');
+    background-attachment: fixed;
+    @include overlay($black-500, .2);
     @extend %flex-col-center;
-    text-align: center;
-  }
+    color: $white-500;
+    padding: 300px 0;
+    .container {
+        @extend %flex-col-center;
+        text-align: center;
+    }
 }
 
 .chill-intro {
-  background: lighten($blue-200,10%);
-  padding: 100px 0;
-  .container {
-    @extend %flex-col-center;
-    text-align: center;
-
-    p {
-      text-align: center;
-      margin: 20px 0;
-      max-width: 60%; 
+    background: lighten($blue-200, 10%);
+    padding: 100px 0;
+    .container {
+        @extend %flex-col-center;
+        text-align: center;
+        p {
+            text-align: center;
+            margin: 20px 0;
+            max-width: 60%;
+        }
     }
-  }
 }
 
 .row {
-  @extend %flex-row-nowrap;
-  justify-content: space-around;
-  @media all and (max-width: 780px) {
-    flex-flow: column wrap;
-  }
-  .chill-block {
-    @extend %flex-col-center;
-    flex: 0 1 33%;
-    margin: 10px;
-
-    img {
-      width: 100%;
-      transition: .4s all cubic-bezier($cubic-fast-start);
-
+    @extend %flex-row-nowrap;
+    justify-content: space-around;
+    @media all and (max-width: 780px) {
+        flex-flow: column wrap;
     }
-
-    h3 {
-      margin: 10px 0;
+    .chill-block {
+        @extend %flex-col-center;
+        flex: 0 1 33%;
+        margin: 10px;
+        img {
+            width: 100%;
+            transition: .4s all cubic-bezier($cubic-fast-start);
+        }
+        h3 {
+            margin: 10px 0;
+        }
     }
-  }
 }
 
 .magic {
-  @include backgroundImg('../../images/beach.jpg');
-  background-position: center 60%;
-  padding: 50px 0;
-
-  .container {
-    @extend %flex-col-nowrap;
-    align-items: center;
-  }
-
-  .activities-row {
-    align-self: stretch;
-    @extend %flex-row-nowrap;
-    justify-content: space-around;
-    padding: 35px 0;
-
-    @media all and (max-width: 870px) {
-        align-self: center;
-        flex-flow: column wrap;
-    }
-    .activities_block {
-      height: 200px;
-      background: url('../../images/icons/heart.png') no-repeat -100px center / 35%,
-                  url('../../images/date.jpg') no-repeat center top / cover;
-      @include overlay($black-500,.2);
-      @extend %flex-col-center;
-      color: $white-500;
-      flex: 1;
-      margin: 10px;
-      overflow: hidden;
-      transition: .3s all ease-in-out;
-      
-      @media all and (max-width: 870px) {
-        flex: 1;
-        width: 300px;
-      }
-
-      h3 {
-        transition: .3s all ease-in-out;
-      }
-
-      &:hover {
-        @include overlay($black-500,.9);
-        background: url('../../images/icons/heart.png') no-repeat center center / 35%,
-                  url('../../images/date.jpg') no-repeat center top / cover;
-        
-        h3 {
-          opacity: 0;
+    @include backgroundImg('../../images/beach.jpg');
+    background-position: center 60%;
+    padding: 50px 0;
+    .container {
+        @extend %flex-col-nowrap;
+        align-items: center;
+        @media all and (max-width: 870px) {
+            h1 {
+                text-align: center;
+                font-size: 3.9rem;
+            }
         }
-      }     
     }
-  } 
+    .activities-row {
+        align-self: stretch;
+        @extend %flex-row-nowrap;
+        justify-content: space-around;
+        padding: 35px 0;
+        @media all and (max-width: 870px) {
+            align-self: center;
+            flex-flow: column wrap;
+        }
+        .activities_block {
+            height: 200px;
+            background: url('../../images/icons/heart.png') no-repeat -100px center / 35%, url('../../images/date.jpg') no-repeat center top / cover;
+            @include overlay($black-500,
+            .2);
+            @extend %flex-col-center;
+            color: $white-500;
+            flex: 1;
+            margin: 10px;
+            overflow: hidden;
+            transition: .3s all ease-in-out;
+            @media all and (max-width: 870px) {
+                flex: 1;
+                width: 300px;
+            }
+            h3 {
+                transition: .3s all ease-in-out;
+            }
+            &:hover {
+                @include overlay($black-500,
+                .9);
+                background: url('../../images/icons/heart.png') no-repeat center center / 35%, url('../../images/date.jpg') no-repeat center top / cover;
+                h3 {
+                    opacity: 0;
+                }
+            }
+        }
+    }
+    .result-row {
+        @media all and (max-width: 870px) {
+            flex-flow: column wrap;
+            padding: 0 25px;
+            iframe {
+                display: none;
+            }
+        }
+    }
 }
 
 form {
-  @extend %flex-col-nowrap;
-
-  input,textarea {
-    @include standartInput($blue-500,$black-500);
-    margin: 2px 0;
-    opacity: .5;
-  }
-
-  textarea {
-    resize: none;
-    margin-bottom: 10px;
-  }
-
-  button {
-    @include btn-default($blue-500);
-  }
+    @extend %flex-col-nowrap;
+    input,
+    textarea {
+        @include standartInput($blue-500,
+        $black-500);
+        margin: 2px 0;
+        opacity: .5;
+    }
+    textarea {
+        resize: none;
+        margin-bottom: 10px;
+    }
+    button {
+        @include btn-default($blue-500);
+    }
 }
 
 .result-row {
+    padding: 50px 0;
+    @extend %flex-row-nowrap;
+    align-items: center;
+    iframe {
+        flex: 1 0 65%;
+    }
+    .instructions {
+        flex: 0 1 35%;
+        padding: 0 20px;
+        text-align: center;
+    }
+}
+
+.storyline {
+    background: lighten($blue-200, 10%);
+    padding: 50px 0;
+    .container {
+        @extend %flex-col-center;
+    }
+    .story-row {
+        @extend %flex-row-nowrap;
+        align-items: center;
+        justify-content: space-around;
+        padding: 50px 0;
+        @media all and (max-width: 870px) {
+            flex-flow: column wrap;
+            padding: 0 25px;
+            p {
+                padding: 25px;
+            }
+        }
+        .story-img {
+            flex: 0 1 50%;
+            margin: 0 10px;
+            img {
+                width: 100%;
+            }
+        }
+        p {
+            flex: 1 0 50%;
+        }
+    }
+}
+
+.community {
+    padding: 50px 0;
+    @include backgroundImg('../../images/people-hockey.jpg')
+    .container {
+        @extend %flex-col-center;
+         @media all and (max-width: 870px) {
+             h1 {
+              text-align: center;
+              font-size: 4.2rem;
+              padding: 0 15px;
+             }
+            }
+        .people-row {
+            padding: 50px 0;
+            @extend %flex-row-nowrap;
+            @each $picture in $people {
+                $i: index($people, $picture);
+                .person-block:nth-child(#{$i}) {
+                    @include backgroundImg($picture);
+                }
+            }
+
+             @media all and (max-width: 870px) {
+              flex-flow: column wrap;
+            }
+            .person-block {
+                color: $white-500;
+                height: 300px;
+                flex: 1;
+                @include backgroundImg('../../images/jill.png');
+                @include overlay($blue-500,
+                .2);
+                @extend %flex-col-center;
+                margin: 0 10px;
+                text-align: center;
+                overflow: hidden;
+                &:hover>p {
+                    transform: translateY(0);
+                }
+                h3 {
+                    margin-bottom: auto;
+                    padding: 10px 0;
+                }
+                p {
+                    margin-bottom: auto;
+                    transition: .2s all cubic-bezier($cubic-fast-start);
+                    transform: translateY(200px);
+                }
+            }
+        }
+    }
+}
+
+footer {
+  background: $black-500;
+  color: $white-500;
   padding: 50px 0;
-  @extend %flex-row-nowrap;
-  align-items: center;
-
-  iframe {
-    flex: 1 0 65%;
-  }
-
-  .instructions {
-    flex: 0 1 35%;
-    padding: 0 20px;
-    text-align: center;
-  }
+  @extend %flex-col-center;
+  text-align: center;
 }
